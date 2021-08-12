@@ -4,7 +4,10 @@ import Vue from 'vue'
 import VeeValidate from 'vee-validate'
 import App from './App'
 import router from './router'
+import store from './store'
+import lang from '/lang'
 
+Vue.use(VeeValidate)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
