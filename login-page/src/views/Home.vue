@@ -1,15 +1,24 @@
 <template>
-  <hello-world />
+  <h3>Welcome {{ $store.state.userId }}</h3>
+  <p>{{message}}</p>
 </template>
-
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
-  export default {
-    name: 'Home',
-
-    components: {
-      HelloWorld,
-    },
+export default {
+  data() {
+    return {
+      message: ""
+    };
+  },
+  created: function() {
+    this.fetchHello();
+  },
+  methods: {
+    fetchHello() {
+      const uri = "http://localhost:8080/hello";
+      this.axios.get(uri).then(response => {
+        this.message = response.data.message;
+      });
+    }
   }
+};
 </script>
